@@ -1,0 +1,11 @@
+name: 'converter'
+
+services:
+  video-converter:
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./script.sh:/app/script.sh
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    command: ['/bin/bash', '-c', '/app/script.sh']
